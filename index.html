@@ -1,0 +1,27 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Login — Web Dev Intern Assignment</title>
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+  <main class="card">
+    <h1>Login</h1>
+    <form id="login-form">
+      <label>Email
+        <input type="email" id="login-email" required />
+      </label>
+      <label>Password
+        <input type="password" id="login-password" required minlength="6" />
+      </label>
+      <div id="login-error" class="error"></div>
+      <button type="submit">Login</button>
+    </form>
+    <p>Don't have an account? <a href="signup.html">Sign up</a></p>
+  </main>
+
+  <script type="module" src="js/auth.js"></script>
+</body>
+</html>

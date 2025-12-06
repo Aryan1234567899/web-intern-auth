@@ -1,0 +1,30 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Sign Up — Web Dev Intern Assignment</title>
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+  <main class="card">
+    <h1>Sign Up</h1>
+    <form id="signup-form">
+      <label>Full name
+        <input type="text" id="signup-name" required minlength="2" />
+      </label>
+      <label>Email
+        <input type="email" id="signup-email" required />
+      </label>
+      <label>Password
+        <input type="password" id="signup-password" required minlength="6" />
+      </label>
+      <div id="signup-error" class="error"></div>
+      <button type="submit">Create account</button>
+    </form>
+    <p>Already have an account? <a href="index.html">Login</a></p>
+  </main>
+
+  <script type="module" src="js/auth.js"></script>
+</body>
+</html>

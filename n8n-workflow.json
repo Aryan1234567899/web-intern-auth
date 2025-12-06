@@ -1,0 +1,65 @@
+{
+  "meta": {
+    "templateCredsSetupCompleted": true,
+    "instanceId": "simple-signup-workflow"
+  },
+  "nodes": [
+    {
+      "id": "Webhook_Trigger",
+      "type": "n8n-nodes-base.webhook",
+      "name": "Signup Webhook",
+      "position": [
+        260,
+        300
+      ],
+      "parameters": {
+        "httpMethod": "POST",
+        "path": "signup-hook",
+        "responseMode": "lastNode",
+        "options": {}
+      }
+    },
+    {
+      "id": "Set_Node",
+      "type": "n8n-nodes-base.set",
+      "name": "Store Signup Data",
+      "position": [
+        520,
+        300
+      ],
+      "parameters": {
+        "fields": {
+          "string": [
+            {
+              "name": "name",
+              "value": "={{ $json.name }}"
+            },
+            {
+              "name": "email",
+              "value": "={{ $json.email }}"
+            },
+            {
+              "name": "message",
+              "value": "New user signup received"
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "connections": {
+    "Signup Webhook": {
+      "main": [
+        [
+          {
+            "node": "Store Signup Data",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "settings": {},
+  "pinData": {}
+}
