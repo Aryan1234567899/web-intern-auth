@@ -1,10 +1,8 @@
-// Firebase Auth + UI logic (modular SDK)
-// IMPORTANT: replace the firebaseConfig object below with your project's config
+// Firebase Auth + UI logic 
 import { initializeApp } from "https://www.gstatic.com/firebasejs/9.23.0/firebase-app.js";
 import { getAuth, createUserWithEmailAndPassword, signInWithEmailAndPassword, signOut, onAuthStateChanged, updateProfile } from "https://www.gstatic.com/firebasejs/9.23.0/firebase-auth.js";
 import { getFirestore, doc, setDoc } from "https://www.gstatic.com/firebasejs/9.23.0/firebase-firestore.js";
 
-// TODO: replace with your config or create a separate js/firebase-config.js exporting firebaseConfig
 const firebaseConfig = {
   apiKey: "AIzaSyCwj4pRpeFZCBUdttrQYrKBFAQi_Kjd-m4",
   authDomain: "intern-auth-project-45515.firebaseapp.com",
@@ -43,7 +41,7 @@ if (signupForm) {
       const userCred = await createUserWithEmailAndPassword(auth, email, password);
       // update profile (displayName)
       await updateProfile(userCred.user, { displayName: name });
-      // store user data in Firestore (safe practice)
+      // store user data in Firestore 
       await setDoc(doc(db, "users", userCred.user.uid), {
         name,
         email,
